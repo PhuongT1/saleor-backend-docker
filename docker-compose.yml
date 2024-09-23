@@ -3,7 +3,7 @@ version: "3.4"
 
 services:
   api:
-    image: tranphuong2024/saleor-backend
+    image: tranphuong2024/saleor-backend:latest
     ports:
       - 8000:8000
     restart: unless-stopped
@@ -26,11 +26,11 @@ services:
       - DASHBOARD_URL=http://localhost:9000/
       - ALLOWED_HOSTS=localhost,api
 
-  # dashboard:
-  #   image: ghcr.io/saleor/saleor-dashboard:latest
-  #   ports:
-  #     - 9000:80
-  #   restart: unless-stopped
+  dashboard:
+    image: tranphuong2024/saleor_admin_web:latest
+    ports:
+      - 9000:80
+    restart: unless-stopped
 
   # db:
   #   image: library/postgres:15-alpine
